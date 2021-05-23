@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./slider.css">
+    
+</head>
+<body>
+    <div class="simple-slider-container">
+        <a href="#" id="left" class="arrow"><-</a>
+        <div class="slider">
+            <ul id="items" class="items">
+                <li class="item"><a href="#" id="item">1</a></li>
+                <li class="item"><a href="#" id="item">2</a></li>
+                <li class="item"><a href="#" id="item">3</a></li>
+                <li class="item"><a href="#" id="item">4</a></li>
+                <li class="item"><a href="#" id="item">5</a></li>
+                <li class="item"><a href="#" id="item">6</a></li>
+                <li class="item"><a href="#" id="item">7</a></li>
+                <li class="item"><a href="#" id="item">8</a></li>
+            </ul>
+        </div>
+        <a href="#" id="right" class="arrow">-></a>
+    </div>
+    <script>
+        const leftBtn = document.querySelector("#left");
+        const rightBtn = document.querySelector("#right");
+        const items = document.querySelector("#items");
+        const item = document.querySelector("#item");
+        const computedStyle = getComputedStyle(items);
+        console.log(item.textContent)
+
+
+
+        rightBtn.addEventListener("click", e =>{
+            e.preventDefault();
+            let currentRight = parseInt(computedStyle.right);    
+            if (currentRight < 500) {
+                items.style.right = `${currentRight + 100}px`;
+            }
+            console.log((currentRight));    
+            
+            
+        //    if (currentRight < 500){
+        //        
+        //        e.preventDefault();//отвенили сыллку как ссылку
+        //        
+        //       currentRight += 100;
+//
+  //              items.style.right = `${currentRight}px`;
+    //        }
+                
+            
+        });
+        leftBtn.addEventListener("click", e =>{
+            e.preventDefault();
+            let currentRight = parseInt(computedStyle.right);    
+            if (currentRight > 0) {
+                items.style.right = `${currentRight - 100}px`;
+            }
+            console.log((currentRight)); 
+        })
+    </script>
+</body>
+</html>
